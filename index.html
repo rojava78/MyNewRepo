@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع عصري | تصميم عالمي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>تسجيل دخول فخم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,108 +18,107 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(120deg, #1e3c72, #2a5298);
-            overflow: hidden;
-            text-align: center;
-            color: white;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
         }
 
-        .container {
-            position: relative;
-            z-index: 2;
-            max-width: 90%;
-            width: 600px;
-            padding: 30px;
+        .login-container {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 350px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 1.2rem;
+        .login-container h2 {
+            color: #fff;
             margin-bottom: 20px;
-            opacity: 0.8;
+            font-weight: 700;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            font-size: 1.2rem;
-            color: white;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            outline: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+            padding-left: 40px;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
             border: none;
             border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            color: #fff;
             cursor: pointer;
-            transition: all 0.3s ease-in-out;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 10px rgba(255, 138, 0, 0.7);
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: #fff;
             text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
         }
 
-        .btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        /* الخلفية المتحركة */
-        .animation-bg {
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .circle {
-            position: absolute;
-            bottom: -50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            animation: floatUp 10s infinite;
-        }
-
-        @keyframes floatUp {
-            from { transform: translateY(100vh); opacity: 1; }
-            to { transform: translateY(-10vh); opacity: 0; }
+        .links a:hover {
+            text-decoration: underline;
         }
     </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <div class="animation-bg"></div>
-
-    <div class="container">
-        <h1>مرحبًا بك في عالم الإبداع</h1>
-        <p>انضم إلينا لاكتشاف تصاميم رائعة وتقنيات حديثة.</p>
-        <a href="#" class="btn">ابدأ الآن</a>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="اسم المستخدم">
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="كلمة المرور">
+        </div>
+        <button class="login-btn">تسجيل الدخول</button>
+        <div class="links">
+            <a href="#">نسيت كلمة المرور؟</a> |
+            <a href="#">إنشاء حساب جديد</a>
+        </div>
     </div>
-
-    <script>
-        function createCircle() {
-            let circle = document.createElement("div");
-            circle.classList.add("circle");
-            document.querySelector(".animation-bg").appendChild(circle);
-
-            let size = Math.random() * 100 + 20;
-            circle.style.width = size + "px";
-            circle.style.height = size + "px";
-
-            circle.style.left = Math.random() * 100 + "vw";
-            circle.style.animationDuration = Math.random() * 6 + 4 + "s";
-
-            setTimeout(() => {
-                circle.remove();
-            }, 10000);
-        }
-
-        setInterval(createCircle, 800);
-    </script>
 
 </body>
 </html>
